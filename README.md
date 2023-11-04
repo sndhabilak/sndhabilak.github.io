@@ -1,2 +1,2 @@
-# sndhabilak22.github.io
+# sndhabilak.github.io
 Personal Portfolio Website
