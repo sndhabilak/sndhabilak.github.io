@@ -1,0 +1,16 @@
+body{
+
+	background-color:lime;
+}
+h1, p, h2{
+	color:maroon;
+}
+
+#headone{
+	background-color:navy;
+	color:white;
+}
+
+.head2{
+	font-size:70px;
+}

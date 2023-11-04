@@ -1,0 +1,16 @@
+body{
+background-image:url("oldsbs.jpg");
+
+}
+
+p, h1{
+	background-color:orange;
+
+}
+#pix1{
+	border-radius:50%;
+}
+
+.pix2{
+	border:15px solid yellow;
+}

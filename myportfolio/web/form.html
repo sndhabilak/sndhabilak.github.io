@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data Request Form</title>
+</head>
+<body>
+	
+		<h1 style="background-color:red;text-align:center;"> DATA REQUEST FORM</h1>
+
+	<form>
+		<fieldset>
+			<legend><em>Personal Information</em></legend>
+			<label>Name:</label>
+			<input type="text" placeholder="Surname First"><br><br>
+			
+			<label>Password:</label>
+			<input type="password" placeholder="********"><br><br>
+			
+			<label>Date of Birth:</label>
+			<input type="date"><br>
+			
+			<label>Gender:</label>
+			<input type="radio" name="gender">Male
+			<input type="radio" name="gender">Female
+			<input type="radio" name="gender">Undisclosed
+		</fieldset>
+		
+		<br>
+		<fieldset>
+			<legend><em>Highest Qualification Obtained</em></legend>
+			<input type="checkbox">Ph.D
+			<input type="checkbox">M.Sc.
+			<input type="checkbox">Degree/HND
+			<input type="checkbox">Secondary
+			<input type="checkbox">Primary<br><br>
+			
+			<label>State of Origin:</label>
+			<select>
+					<option>--Select--</option>
+					<option>Bauchi</option>
+					<option>Plateau</option>
+			</select><br><br>
+			<label>Upload Your Curriculum Vitae:</label>
+			<input type="file"><input type="submit" value="Upload" style="float:right">
+		</fieldset>
+			
+	<br>
+	<input type="Reset" value="RESET">
+	<input type="submit" value="SUBMIT" style="float:right">
+	</form>
+</body>
+</html>
+<!--
+<!DOCTYPE html>: This declaration specifies that the document is an HTML5 document type.
+
+<html>: The root element that encloses the entire HTML content.
+
+<head>: This section contains metadata and other information about the document, but in this code, it only includes the title of the webpage displayed in the browser's title bar.
+
+<title>: Specifies the title of the web page, which will be displayed in the browser tab.
+
+<body>: This section contains the visible content of the webpage.
+
+<h1>: A level 1 heading element with inline styling that sets the background color to red and centers the text.
+
+<form>: This element defines a form that will contain various input fields for users to submit data.
+
+<fieldset>: A grouping element that helps organize related form controls.
+
+<legend>: Defines a caption for the <fieldset> element, providing context for the group of controls within it.
+
+<label>: Labels for various input fields to describe what data is expected.
+
+<input type="text">: A text input field for users to enter their name.
+
+<input type="password">: A password input field that masks the input characters for secure data entry.
+
+<input type="date">: A date input field where users can select a date from a calendar picker.
+
+<input type="radio">: Radio buttons for gender selection. However, the radio buttons have name attribute, which is the same for all radio buttons in the group to allow users to select only one option.
+
+<input type="checkbox">: Checkboxes for users to select their highest qualification obtained.
+
+<select>: A dropdown menu for users to select their state of origin. 
+<option>: Individual options within the <select> dropdown.
+
+<input type="file">: An input field for users to upload their curriculum vitae (CV).
+
+<input type="submit">: A submit button for sending the form data to the server.
+
+<input type="Reset">: A reset button that resets the form fields to their default values.
+
+style="float:right": This inline styling is used to position the "Upload" and "SUBMIT" buttons to the right side of the fieldset.
+-->
