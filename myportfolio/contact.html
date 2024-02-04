@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<title>Contact Me</title>
+	<link href="css/styles.css" rel="stylesheet" />
+	<style>
+	label{
+		font-size: 18px;
+	}
+	.btn {
+		padding:10px;
+		font-size:15px;
+		color: white;
+		background: #333333;
+		border: none;
+		border-radius:5px;
+	}
+	input{
+		height:20px;
+		width:25%;
+		padding:5px 10px;
+		font-size: 16px;
+		border-radius: 5px;
+		border: 1px solid gray;
+	}
+	select{
+		height:30px;
+		width:27%;
+		padding:5px 10px;
+		font-size: 16px;
+		border-radius: 5px;
+		border: 1px solid gray;
+	}
+	
+	</style>
+</head>
+<body>
+<nav>
+<ul>
+	<li><a href="index.html">HOME</a></li>
+	<li><a href="about.html">ABOUT</a></li>
+	<li><a href="photos.html">PHOTOS</a></li>
+	<li><a href="services.html">SERVICES</a></li>
+	<li><a href="contact.html">CONTACT</a></li>
+</ul>
+</nav>
+
+<main>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.3118254208357!2d9.828272074011165!3d10.316910567503541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1054d73e991075f5%3A0x74add8b501b68e4f!2s12%20Ahmadu%20Bello%20Way%2C%20Bauchi%20740102%2C%20Bauchi!5e0!3m2!1sen!2sng!4v1706705333336!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<p>
+	Use the contact form below to drop me a message. Let me know your name, email, phone number, and the details of how I can assist you. I strive to respond promptly and efficiently.
+
+</p>
+<form action="/process_order" method="post">
+    <fieldset>
+        <legend><strong>CONTACT ME</strong></legend>
+		
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+			
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+		
+		
+        <label for="phone">Phone:</label><br>
+        <input type="tel" id="phone" name="phone" required><br>
+
+		
+        <label for="comment">Comment:</label><br>
+		<textarea id="comment" name="comment" rows="8" cols="44" required></textarea>
+
+    </fieldset>
+	<br>
+    <button type="submit" class="btn">SEND</button>
+</form>
+
+</main>
+
+<footer> Copyright &copy; 2022  Sunday Habila.</footer>
+</body>
+</html>

@@ -1,0 +1,168 @@
+CREATE DATABASE IF NOT EXISTS portfolio;
+USE portfolio;
+
+CREATE TABLE IF NOT EXISTS contact_form (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    comment TEXT NOT NULL
+);
+
+
+<?php
+// Establish a connection to the MySQL database
+$servername = "your_mysql_server";
+$username = "your_mysql_username";
+$password = "your_mysql_password";
+$dbname = "portfolio";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $comment = $_POST["comment"];
+
+    // Insert data into the contact_form table
+    $sql = "INSERT INTO contact_form (name, email, phone, comment) VALUES ('$name', '$email', '$phone', '$comment')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Record inserted successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Close the database connection
+$conn->close();
+?>
+
+<?php
+// Establish a connection to the MySQL database
+$servername = "your_mysql_server";
+$username = "your_mysql_username";
+$password = "your_mysql_password";
+$dbname = "portfolio";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $name = mysqli_real_escape_string($conn, $_POST["name"]);
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $phone = mysqli_real_escape_string($conn, $_POST["phone"]);
+    $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
+
+    // Insert data into the contact_form table
+    $sql = "INSERT INTO contact_form (name, email, phone, comment) VALUES ('$name', '$email', '$phone', '$comment')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Record inserted successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Close the database connection
+$conn->close();
+?>
+
+CREATE TABLE IF NOT EXISTS training_orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    training_type VARCHAR(50) NOT NULL
+);
+
+<?php
+// Establish a connection to the MySQL database
+$servername = "your_mysql_server";
+$username = "your_mysql_username";
+$password = "your_mysql_password";
+$dbname = "portfolio";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $name = mysqli_real_escape_string($conn, $_POST["name"]);
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $phone = mysqli_real_escape_string($conn, $_POST["phone"]);
+    $trainingType = mysqli_real_escape_string($conn, $_POST["trainingType"]);
+
+    // Insert data into the training_orders table
+    $sql = "INSERT INTO training_orders (name, email, phone, training_type) VALUES ('$name', '$email', '$phone', '$trainingType')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Order placed successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Close the database connection
+$conn->close();
+?>
+
+<?php
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $name = mysqli_real_escape_string($conn, $_POST["name"]);
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $phone = mysqli_real_escape_string($conn, $_POST["phone"]);
+    $trainingType = mysqli_real_escape_string($conn, $_POST["trainingType"]);
+
+    // Insert data into the training_orders table
+    $sql = "INSERT INTO training_orders (name, email, phone, training_type) VALUES ('$name', '$email', '$phone', '$trainingType')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Order placed successfully";
+
+        // Send email to the sender
+        $to = $email;
+        $subject = "Order Confirmation";
+        $message = "Thank you for placing your order. We have received your information.\n\nDetails:\nName: $name\nEmail: $email\nPhone: $phone\nTraining Type: $trainingType";
+        $headers = "From: your_email@example.com";
+
+        mail($to, $subject, $message, $headers);
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Close the database connection
+$conn->close();
+?>

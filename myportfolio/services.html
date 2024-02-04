@@ -1,0 +1,137 @@
+<?php
+	error_reporting(0);
+	include('dbconnect.php');
+	// table name
+	$tbl_name='training_orders';
+	
+	// Check if the form is submitted
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	
+	// Retrieve form data
+		$name = mysqli_real_escape_string($conn, $_POST["name"]);
+		$email = mysqli_real_escape_string($conn, $_POST["email"]);
+		$phone = mysqli_real_escape_string($conn, $_POST["phone"]);
+		$trainingType = mysqli_real_escape_string($conn, $_POST["trainingType"]);
+
+    // Insert data into the training_orders table
+    $sql = "INSERT INTO training_orders (name, email, phone, training_type) VALUES ('$name', '$email', '$phone', '$trainingType')";
+
+	if(mysqli_query($sql)){
+
+		echo "Order placed successfully";
+
+        // Send email to the sender
+        $to = $email;
+        $subject = "Order Confirmation";
+        $message = "Thank you for placing your order. We have received your information.\n\nDetails:\nName: $name\nEmail: $email\nPhone: $phone\nTraining Type: $trainingType";
+        $headers = "From: sndhabila@outlook.com";
+
+       $sentmail=mail($to, $subject, $message, $headers);
+    }
+
+	// if your email succesfully sent
+	if($sentmail){
+		// Redirect the visitor to the Paystack payment page
+		$paystackPaymentURL = "https://paystack.com/pay/4oju-mwz3t";
+		header("Location: $paystackPaymentURL");
+		exit; // Ensure that no further code is executed after the redirection
+	
+	}
+	}
+
+	?>
+
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<title>My Services</title>
+	<link href="css/styles.css" rel="stylesheet" />
+	<style>
+	label{
+		font-size: 18px;
+	}
+	.btn {
+		padding:10px;
+		font-size:15px;
+		color: white;
+		background: #333333;
+		border: none;
+		border-radius:5px;
+	}
+	input{
+		height:20px;
+		width:25%;
+		padding:5px 10px;
+		font-size: 16px;
+		border-radius: 5px;
+		border: 1px solid gray;
+	}
+	select{
+		height:30px;
+		width:27%;
+		padding:5px 10px;
+		font-size: 16px;
+		border-radius: 5px;
+		border: 1px solid gray;
+	}
+	
+	</style>
+</head>
+<body>
+<nav>
+<ul>
+	<li><a href="index.html">HOME</a></li>
+	<li><a href="about.html">ABOUT</a></li>
+	<li><a href="photos.html">PHOTOS</a></li>
+	<li><a href="services.html">SERVICES</a></li>
+	<li><a href="contact.html">CONTACT</a></li>
+</ul>
+</nav>
+
+<main>
+<h1>SERVICES</h1>
+
+<h4>Web Design and Development Training</h4>
+<p>Elevate your digital presence through our immersive Web Design and Development training services. Specializing in creating visually stunning, user-friendly websites, we provide tailored training to meet your unique business needs. From concept to execution, our focus is on delivering responsive, accessible, and engaging web solutions that leave a lasting impression on your audience.</p>
+<h4>Data Processing Training</h4>
+<p>Unlock the power of your data with our Data Processing training services. We offer comprehensive and hands-on training to efficiently organize, analyze, and derive valuable insights from your information. Whether it's data cleaning, transformation, or analysis, our training ensures that your data becomes a strategic asset for informed decision-making.</p>
+
+<p>Unlock the full potential of your data with our Data Processing training services, where we go beyond conventional data processing to empower you with comprehensive, hands-on training. Our expert-led sessions are designed to efficiently teach you the skills needed to organize, analyze, and extract valuable insights from your information. What sets our training apart is the inclusion of extensive coverage on Microsoft Word, PowerPoint, and Excel. Whether you're diving into data cleaning, transformation, or analysis, our specialized training ensures that your data not only becomes a strategic asset for informed decision-making but also equips you with proficiency in essential tools such as Word, PowerPoint, and Excel. Enrich your skill set and amplify the impact of your data processing journey through our tailored training services.</p>
+<h4>Database Management System Training</h4>
+<p>Optimize your data organization and accessibility through our Database Management System (DBMS) training services. Specializing in designing and implementing robust database solutions tailored to your business requirements, our training covers everything from relational databases to NoSQL systems. Our expertise ensures efficient data storage, retrieval, and management, enhancing the overall performance of your applications.</p>
+<h4>Desktop Publishing Training</h4>
+<p>Bring your content to life with our Desktop Publishing training services. We excel in providing hands-on training to create visually appealing and professionally formatted documents, brochures, and publications. Our desktop publishing expertise extends to designing materials that resonate with your brand, ensuring that your printed and digital materials leave a lasting impression on your audience.
+Each training service is meticulously crafted with a focus on quality, innovation, and client satisfaction. Whether you're aiming to establish a strong online presence, harness the potential of your data through training, efficiently manage databases, or create captivating publications, our services are tailored to elevate your skills and business to new heights.</p>
+
+<form action="/process_order" method="post">
+    <fieldset>
+        <legend><strong>Book Your Training</strong></legend>
+		
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+			
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+		
+		
+        <label for="phone">Phone:</label><br>
+        <input type="tel" id="phone" name="phone" required><br>
+
+		
+        <label for="trainingType">Select Training Type:</label><br>
+        <select id="trainingType" name="trainingType" required>
+            <option value="webDevelopment">Web Design and Development</option>
+            <option value="dataProcessing">Data Processing</option>
+            <option value="dbms">Database Management System</option>
+            <option value="desktopPublishing">Desktop Publishing</option>
+        </select>
+    </fieldset>
+	<br>
+    <button type="submit" class="btn">Place Order</button>
+</form>
+
+</main>
+
+<footer> Copyright &copy; 2022  Sunday Habila.</footer>
+</body>
+</html>
