@@ -42,9 +42,7 @@ li a:hover{
 	
 	background-color:#111111;
 }
-li a.active {
-  background-color: #FF0000;
-}
+
 footer{
 	color:white;
 	background-color:#333333;
