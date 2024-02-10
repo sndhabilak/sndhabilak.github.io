@@ -42,17 +42,17 @@ li a:hover{
 	background-color:#111111;
 }
 
-footer{
-	color:white;
-	background-color:#333333;
-	height:25px;
-	bottom:0;
-	position: relative;
-	width:100%;
-	padding-top:20px;
-	text-align:center;
-	left:0;
+footer {
+    color: white;
+    background-color: #333333;
+    position: relative;
+    width: 100%;
+    padding: 20px 0; /* Adjust padding to provide space within the footer */
+    text-align: center;
+    bottom: 0;
 }
+
+/* Remove height property to allow the footer to expand dynamically */
 
 p{
 	text-align:justify;
