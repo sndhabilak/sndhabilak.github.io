@@ -43,19 +43,15 @@ li a:hover{
 }
 
 footer{
-
-    list-style-type: none;
-    bottom:0;
-    left: 0;
-    margin-right: 0;
-    padding: 0;
-    margin-right: 0;
-    width: 100%;
-    overflow: hidden;
-    background-color: #333333;
-    position: relative;
-
-
+	color:white;
+	background-color:#333333;
+	height:25px;
+	bottom:0;
+	position: relative;
+	width:100%;
+	padding-top:20px;
+	text-align:center;
+	left:0;
 }
 
 p{
