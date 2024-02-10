@@ -53,8 +53,8 @@ footer{
     width: 100%;
     overflow: hidden;
     background-color: #333333;
-    position: fixed;
-	display:flex;
+    position: relative;
+
 
 }
 
