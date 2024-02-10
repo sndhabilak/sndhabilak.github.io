@@ -54,6 +54,7 @@ footer{
     overflow: hidden;
     background-color: #333333;
     position: fixed;
+	display:flex;
 
 }
 
