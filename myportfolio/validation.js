@@ -1,8 +1,10 @@
 function validateForm() {
+  
   // Validate name
   const nameInput = document.getElementById('name').value;
-  if (nameInput.trim() === "") {
-    alert("Please enter your name.");
+  const nameRegex = /^[a-zA-Z\s]+$/; // Ensures only letters and spaces are allowed
+  if (nameInput.trim() === "" || !nameRegex.test(nameInput)) {
+    alert("Please enter a valid name without numbers.");
     return false;
   }
 
@@ -21,8 +23,6 @@ function validateForm() {
     alert("Please enter a valid 11-digit phone number.");
     return false;
   }
-
-  // Other validations can be added based on your requirements.
 
   return true; // If all validations pass, the form will be submitted.
 }
